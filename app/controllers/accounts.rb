@@ -11,8 +11,9 @@ Krater.controllers :accounts do
     @account = Account.new(params[:account])
     if @account.save
       flash[:notice] = 'Account was successfully created.'
-      redirect url(:accounts, :edit, :id => @account.id)
+      redirect url(:accounts, :show, :id => @account.id)
     else
+      puts @account.error_messages 
       render 'accounts/new'
     end
   end
