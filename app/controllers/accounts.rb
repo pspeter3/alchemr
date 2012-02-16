@@ -3,6 +3,8 @@ Krater.controllers :accounts do
   end
 
   get :new do
+    @account = Account.new
+    render 'accounts/new'
   end
 
   post :create, :map => '/accounts' do

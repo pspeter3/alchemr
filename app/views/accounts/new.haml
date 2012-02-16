@@ -1,0 +1,3 @@
+%h1 Sign Up
+- form_for @account, url(:accounts, :create), :class => 'well' do |f|
+  = partial 'accounts/form', :locals => {:f => f}

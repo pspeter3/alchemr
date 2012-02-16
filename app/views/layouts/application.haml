@@ -3,7 +3,12 @@
   %head
     %title Krater
     = stylesheet_link_tag 'bootstrap.min'
+    :css
+      body {padding-top: 60px; padding-bottom: 40px;}    
   %body
     = partial 'layouts/navbar'
-    = yield
+    .container
+      .row
+        .span12
+          = yield
     = javascript_include_tag 'jquery', 'bootstrap.min', 'jquery-ujs', 'application'
