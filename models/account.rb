@@ -1,5 +1,6 @@
 class Account
   include Mongoid::Document
+  include Mongoid::Timestamps
   attr_accessor :password, :password_confirmation
 
   # Fields
