@@ -10,5 +10,6 @@
     .container
       .row
         .span12
+          = partial 'layouts/flash'
           = yield
     = javascript_include_tag 'jquery', 'bootstrap.min', 'jquery-ujs', 'application'
