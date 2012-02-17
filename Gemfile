@@ -9,6 +9,7 @@ gem 'rake'
 gem 'sinatra-flash', :require => 'sinatra/flash'
 
 # Component requirements
+gem 'bcrypt-ruby', :require => "bcrypt"
 gem 'haml'
 gem 'mongoid', '2.4.4'
 gem 'bson_ext', :require => "mongo"
