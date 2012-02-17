@@ -1,0 +1,4 @@
+.page-header
+  %h1 Edit Account Information
+- form_for @account, url(:accounts, :update, @account.id), :class => 'form-horizontal', :method => 'put' do |f|
+  = partial 'accounts/form', :locals => {:f => f}
