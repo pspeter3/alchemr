@@ -1,13 +1,14 @@
 class Question
   include Mongoid::Document
-  include Mongoid::Timestamps # adds created_at and updated_at fields
-
-  # field <name>, :type => <type>, :default => <value>
   
-
-  # You can define indexes on documents using the index macro:
-  # index :field <, :unique => true>
-
-  # You can create a composite key in mongoid to replace the default id using the key macro:
-  # key :field <, :another_field, :one_more ....>
+  field :prompt, :type => String
+  field :help, :type => String
+  field :required, :type => Boolean
+  field :type, :type => Symbol
+  field :config, :type => Hash
+  
+  validates_presence_of :prompt
+  validates_presence_of :type
+  
+  embedded_in :survey
 end

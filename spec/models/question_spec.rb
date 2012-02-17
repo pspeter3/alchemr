@@ -14,5 +14,5 @@ describe Question do
   it { should validate_presence_of(:prompt) }
   it { should validate_presence_of(:type) }
   
-  it { should belong_to(:survey) }
+  it { should be_embedded_in(:survey) }
 end
