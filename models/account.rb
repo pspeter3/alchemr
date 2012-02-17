@@ -8,7 +8,7 @@ class Account
   field :surname,          :type => String
   field :email,            :type => String
   field :crypted_password, :type => String
-  field :role,             :type => String
+  field :role,             :type => String, :default => 'account'
 
   # Validations
   validates_presence_of     :email, :role

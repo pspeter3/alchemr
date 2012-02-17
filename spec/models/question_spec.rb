@@ -8,8 +8,8 @@ describe Question do
   
   it { should have_fields(:prompt, :help).of_type(String) }
   it { should have_field(:type).of_type(Symbol) }
-  it { should have_field(:config).of_type(Hash) }
-  it { should have_field(:required).of_type(Boolean) }
+  it { should have_field(:config).of_type(Hash).with_default_value_of({}) }
+  it { should have_field(:required).of_type(Boolean).with_default_value_of(false) }
   
   it { should validate_presence_of(:prompt) }
   it { should validate_presence_of(:type) }
