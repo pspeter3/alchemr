@@ -5,3 +5,17 @@
       %ul.nav
         %li= link_to 'About', url(:static, :about)
         %li= link_to 'F.A.Q', url(:static, :faq)
+      - if logged_in?
+        %ul.nav.pull-right
+          %li.dropdown
+            %a.dropdown-toggle{:href => '#', 'data-toggle' => 'dropdown'}
+              = "#{current_account.name} #{current_account.surname}"
+              %b.caret
+            %ul.dropdown-menu
+              %li= link_to 'View Profile', url(:accounts, :show, :id => current_account.id)
+              %li= link_to 'Edit Account', url(:accounts, :edit, :id => current_account.id)
+              %li.divider
+              %li= link_to 'Logout', url_for(:sessions, :destroy)
+      - else
+        %ul.nav.pull-right
+          %li.pull-right= link_to 'Login', url(:sessions, :new)

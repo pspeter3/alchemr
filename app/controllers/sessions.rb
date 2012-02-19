@@ -6,6 +6,7 @@ Krater.controllers :sessions do
   post :create, :map => '/login' do
     if account = Account.authenticate(params[:email], params[:password])
       set_current_account(account)
+      flash[:success] = "Welcome #{account.name} #{account.surname}."
       redirect url(:static, :index)
     else
       flash[:warning] = "Wrong or email or password."
@@ -13,8 +14,9 @@ Krater.controllers :sessions do
     end
   end
   
-  delete :destroy, :map => '/logout' do
+  get :destroy, :map => '/logout' do
     set_current_account(nil)
+    flash[:success] = "Successfully logged out." 
     redirect url(:static, :index)
   end
 end
