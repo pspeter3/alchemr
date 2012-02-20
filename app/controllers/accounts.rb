@@ -1,7 +1,4 @@
 Krater.controllers :accounts do
-  get :index do
-  end
-
   get :new do
     @account = Account.new
     render 'accounts/new'
