@@ -6,6 +6,7 @@ describe Website do
     website.should_not be_nil
   end
   it { should have_fields(:name, :url, :img, :desc).of_type(String) }
+  it { should have_field(:tags).of_type(Array).with_default_value_of([]) }
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:url) }
   it { should validate_format_of(:url) }
