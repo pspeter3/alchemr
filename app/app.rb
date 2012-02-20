@@ -2,7 +2,8 @@ class Krater < Padrino::Application
   register Padrino::Rendering
   register Padrino::Mailer
   register Padrino::Helpers
-
+  register Padrino::Admin::AccessControl
+  
   enable :sessions
 
   ##

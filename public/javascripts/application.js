@@ -6,4 +6,6 @@ $(function() {
   $('.alert h2').addClass('alert-heading');
   // Adds alert support
   $(".alert-message").alert();
+  // Adds dropdown support
+  $(".dropdown-toggle").dropdown();
 });
