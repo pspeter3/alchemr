@@ -3,22 +3,22 @@
   .control-group
     = f.label :name, :caption => 'First Name', :class => 'control-label'
     .controls
-      = f.text_field :name
+      = f.text_field :name, :class => 'span5'
   .control-group
     = f.label :surname, :caption => 'Last Name', :class => 'control-label'
     .controls
-      = f.text_field :surname
+      = f.text_field :surname, :class => 'span5'
   .control-group
     = f.label :email, :caption => 'Email Address', :class => 'control-label'
     .controls
-      = f.text_field :email
+      = f.text_field :email, :class => 'span5'
   .control-group
     = f.label :password, :caption => 'Password', :class => 'control-label'
     .controls
-      = f.password_field :password
+      = f.password_field :password, :class => 'span5'
   .control-group
     = f.label :password_confirmation, :caption => 'Password Confirmation', :class => 'control-label'
     .controls
-      = f.password_field :password_confirmation
+      = f.password_field :password_confirmation, :class => 'span5'
   .form-actions
-    = f.submit 'Sign Up', :class => 'btn btn-primary'
+    = f.submit text, :class => 'btn btn-primary'

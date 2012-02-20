@@ -1,4 +1,6 @@
-.page-header
-  %h1 Sign Up
-- form_for @account, url(:accounts, :create), :class => 'form-horizontal' do |f|
-  = partial 'accounts/form', :locals => {:f => f}
+.row
+  .span12
+    .page-header
+      %h1 Sign Up
+    - form_for @account, url(:accounts, :create), :class => 'form-horizontal' do |f|
+      = partial 'accounts/form', :locals => {:f => f, :text => 'Sign Up'}

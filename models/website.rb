@@ -5,7 +5,6 @@ class Website
   # Fields
   field :name, :type => String
   field :url, :type => String
-  field :img, :type => String
   field :desc, :type => String
   field :tags, :type => Array, :default => []
   

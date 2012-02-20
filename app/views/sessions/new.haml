@@ -1,16 +1,18 @@
-.page-header
-  %h1 Login
-- form_tag url(:sessions, :create), :class => 'form-horizontal' do
-  - field_set_tag do
-    .control-group
-      = label_tag :email, :caption => 'Email', :class => 'control-label'
-      .controls
-        = text_field_tag :email
-    .control-group
-      = label_tag :password, :caption => 'Password', :class => 'control-label'
-      .controls
-        = password_field_tag :password
-    .form-actions
-      = submit_tag 'Login', :class => 'btn btn-primary'
-      %button.btn
-        = link_to 'Sign Up', url(:accounts, :new)
+.row
+  .span12
+    .page-header
+      %h1 Login
+    - form_tag url(:sessions, :create), :class => 'form-horizontal' do
+      - field_set_tag do
+        .control-group
+          = label_tag :email, :caption => 'Email', :class => 'control-label'
+          .controls
+            = text_field_tag :email, :class => 'span5'
+        .control-group
+          = label_tag :password, :caption => 'Password', :class => 'control-label'
+          .controls
+            = password_field_tag :password, :class => 'span5'
+        .form-actions
+          = submit_tag 'Login', :class => 'btn btn-primary'
+          %button.btn
+            = link_to 'Sign Up', url(:accounts, :new)
