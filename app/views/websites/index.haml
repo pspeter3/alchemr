@@ -1,0 +1,16 @@
+.row
+  .span4
+    .well
+      %h2 Search!!! RAWR
+  .span8
+    .page-header
+      %h2 Websites
+    %table.table.table-striped
+      %thead
+        %th Name
+        %th URL
+      %tbody
+        - @websites.each do |website|
+          %tr
+            %td= link_to website.name, url(:websites, :show, :id => website.id)
+            %td= link_to website.url, website.url

@@ -3,6 +3,7 @@ class Krater < Padrino::Application
   register Padrino::Mailer
   register Padrino::Helpers
   register Padrino::Admin::AccessControl
+  register Padrino::CanCan
   
   enable :sessions
 
@@ -57,4 +58,20 @@ class Krater < Padrino::Application
   #     render 'errors/505'
   #   end
   #
+  
+  ## CanCan Configuration
+  # Errors
+  error CanCan::AccessDenied do
+    if logged_in?
+      403
+    else
+      redirect url(:sessions, :new) 
+    end
+  end
+  
+  # Roles
+  role [:account] do
+    can [:index, :show, :new, :create], Website
+    can [:edit, :update, :destory], Website, :account => current_account
+  end
 end

@@ -1,0 +1,16 @@
+= f.error_messages :class => 'alert alert-error'
+- field_set_tag do
+  .control-group
+    = f.label :name, :caption => 'Name', :class => 'control-label'
+    .controls
+      = f.text_field :name, :class => 'span5'
+  .control-group
+    = f.label :url, :caption => 'URL', :class => 'control-label'
+    .controls
+      = f.text_field :url, :class => 'span5'
+  .control-group
+    = f.label :desc, :caption => 'Description', :class => 'control-label'
+    .controls
+      = f.text_area :desc, :class => 'span5'
+  .form-actions
+    = f.submit text, :class => 'btn btn-primary'
