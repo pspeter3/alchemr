@@ -1,0 +1,25 @@
+.question
+  .control-group
+    = f.label :prompt, :caption => 'Prompt', :class => 'control-label'
+    .controls
+      = f.text_field :prompt, :class => 'span4'
+  .control-group
+    = f.label :img, :caption => 'Optional Image URL', :class => 'control-label'
+    .controls
+      = f.text_field :img, :class => 'span4'
+  .control-group
+    = f.label :required, :caption => 'Required', :class => 'control-label'
+    .controls
+      %label.checkbox
+        = f.check_box :required
+  .control-group
+    = f.label :type, :caption => 'Question Type', :class => 'control-label'
+    .controls
+      = f.select :type, :options => [['Multiple Choice', :multiple], ['Select Field', :select], ['Checkboxes', :checkbox]], :class => 'span4'
+  .control-group
+    = f.label :options, :caption => 'Options', :class => 'control-label'
+    .controls
+      = f.text_area :options, :class => 'span4', :value => f.object.options.join(';')
+      %p.help-block
+        Separate options with a semicolon. Ex: a;b;c;d
+  

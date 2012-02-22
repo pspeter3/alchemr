@@ -1,0 +1,6 @@
+.row
+  .span8
+    .page-header
+      %h1 New Survey
+    - form_for @survey, url(:surveys, :create), :class => 'form-horizontal' do |f|
+      = partial 'surveys/form', :locals => {:f => f, :text => 'Create'}

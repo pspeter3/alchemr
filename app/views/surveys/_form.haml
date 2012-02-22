@@ -1,0 +1,27 @@
+= f.error_messages :class => 'alert alert-error'
+- field_set_tag do
+  .control-group
+    = f.label :title, :caption => 'Title', :class => 'control-label'
+    .controls
+      = f.text_field :title, :class => 'span4'
+  .control-group
+    = f.label :desc, :caption => 'Description', :class => 'control-label'
+    .controls
+      = f.text_area :url, :class => 'span4'
+  .control-group
+    = f.label :active, :caption => 'Active', :class => 'control-label'
+    .controls
+      %label.checkbox
+        = f.check_box :active
+  .control-group
+    = f.label :cap, :caption => 'Cap', :class => 'control-label'
+    .controls
+      = f.text_field :cap, :class => 'span4'
+  %h2 Questions
+  = f.fields_for :questions do |qf|
+    = partial 'questions/form', :locals => {:f => qf}
+  .form-actions
+    = f.submit text, :class => 'btn btn-primary'
+    %button.btn
+      %i.icon-plus-sign
+      Add Question
