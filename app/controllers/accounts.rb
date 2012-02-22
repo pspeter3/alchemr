@@ -6,7 +6,6 @@ Krater.controllers :accounts do
 
   post :create, :map => '/accounts' do
     @account = Account.new(params[:account])
-    @account.role = 'account'
     if @account.save
       flash[:success] = 'Account was successfully created.'
       redirect url(:accounts, :show, :id => @account.id)
