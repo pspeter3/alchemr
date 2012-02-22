@@ -1,7 +1,10 @@
 # Helper methods defined here can be accessed in any controller or view in the application
 
 Krater.helpers do
-  # def simple_helper_method
-  #  ...
-  # end
+  def require_login
+    unless logged_in?
+      flash[:warning] = 'You must be logged in to see that page.'
+      redirect url(:sessions, :new)
+    end
+  end
 end

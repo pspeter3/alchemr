@@ -1,16 +1,18 @@
 .row
-  .span4
-    .well
-      %h2 Search!!! RAWR
-  .span8
+  .span12
     .page-header
-      %h2 Websites
+      %h1 Websites
     %table.table.table-striped
       %thead
         %th Name
+        %th Description
         %th URL
       %tbody
         - @websites.each do |website|
           %tr
             %td= link_to website.name, url(:websites, :show, :id => website.id)
             %td= link_to website.url, website.url
+            %td= website.desc
+    %a.btn.btn-primary{:href => url(:websites, :new)}
+      %i.icon-plus-sign.icon-white
+      Add Website

@@ -1,6 +1,10 @@
 Krater.controllers :websites do
+  before do
+    require_login
+  end
+  
   get :index do
-    @websites = Website.all
+    @websites = current_account.websites
     render 'websites/index'
   end
 
@@ -26,6 +30,7 @@ Krater.controllers :websites do
   end
 
   get :edit, :map => '/websites/:id/edit' do
+    @website = Website.find(params[:id])
   end
 
   put :update, :map => '/websites/:id' do
