@@ -6,11 +6,12 @@ class Survey
   field :desc, :type => String
   field :sites, :type => Array, :default => []
   field :active, :type => Boolean, :default => true
-  field :rate, :type => Float
+  field :cap, :type => Integer
   
   validates_presence_of :title
-  validates_numericality_of :rate, :greater_than => 0.02
+  validates_numericality_of :cap
   
   embeds_many :questions
+  accepts_nested_attributes_for :questions
   belongs_to :account
 end

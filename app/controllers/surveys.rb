@@ -1,30 +1,19 @@
 Krater.controllers :surveys do
-  # get :index, :map => "/foo/bar" do
-  #   session[:foo] = "bar"
-  #   render 'index'
-  # end
-
-  # get :sample, :map => "/sample/url", :provides => [:any, :js] do
-  #   case content_type
-  #     when :js then ...
-  #     else ...
-  # end
-
-  # get :foo, :with => :id do
-  #   "Maps to url '/foo/#{params[:id]}'"
-  # end
-
-  # get "/example" do
-  #   "Hello world!"
-  # end
-
+  before do
+    require_login
+  end
+  
   get :index do
   end
 
   get :new do
+    @survey = Survey.new
+    @survey.questions << Question.new(:prompt => 'Test', :type => :select, :options => [1, 2, 3])
+    render 'surveys/new'
   end
 
-  post :create do
+  post :create, :map => '/surveys', :provides => :json do
+    params.to_json
   end
 
   get :show do
