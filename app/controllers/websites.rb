@@ -31,33 +31,28 @@ Krater.controllers :websites do
 
   get :edit, :map => '/websites/:id/edit' do
     @website = Website.find(params[:id])
-    unless @website.account == current_account
-      flash[:warning] = 'You may not edit that website.'
-      redirect request.referrer
+    has_permission? @website.account == current_account do
+      render 'websites/edit'
     end
-    render 'websites/edit'
   end
 
   put :update, :map => '/websites/:id' do
     @website = Website.find(params[:id])
     # Check for permission
-    if @website.account == current_account
+    has_permission? @website.account == current_account do
       # Check for update
-      if @account.update_attributes(params[:account])
-        flash[:success] = 'Account was successfully updated.'
-        redirect url(:accounts, :show, :id => @account.id)
+      if @website.update_attributes(params[:website])
+        flash[:success] = 'Website was successfully updated.'
+        redirect url(:websites, :show, :id => @website.id)
       else
-        render 'accounts/edit'
+        render 'websites/edit'
       end
-    else
-      flash[:warning] = 'You may not edit that website.'
-      redirect request.referrer
     end
   end
 
   delete :destroy, :map => '/websites/:id' do
     website = Website.find(params[:id])
-    if website.account == current_account
+    has_permission? website.account == current_account do
       if website.destroy
         flash[:success] = 'Website succesfully deleted.'
         redirect url(:websites, :index)
@@ -65,9 +60,6 @@ Krater.controllers :websites do
         flash[:error] = 'Website cannot be deleted.'
         redirect url(:webiste, :show, :id => website.id)
       end
-    else
-      flash[:warning] = 'You may not edit that website.'
-      redirect request.referrer
     end 
   end
 end

@@ -1,0 +1,6 @@
+.row
+  .span12
+    .page-header
+      %h1= "Edit #{@website.name}"
+    - form_for @website, url(:websites, :update, :id => @website.id), :class => 'form-horizontal', :method => 'put' do |f|
+      = partial 'websites/form', :locals => {:f => f, :text => 'Update'}
