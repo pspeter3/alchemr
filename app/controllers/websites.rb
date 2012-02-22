@@ -31,6 +31,11 @@ Krater.controllers :websites do
 
   get :edit, :map => '/websites/:id/edit' do
     @website = Website.find(params[:id])
+    if @website.account != current_account
+      flash[:warning] = 'You may not edit that website.'
+      redirect request.referrer
+    end
+    render 'websites/edit'
   end
 
   put :update, :map => '/websites/:id' do

@@ -4,3 +4,14 @@
       %h1= @website.name
     %p= @website.desc
     %p= link_to @website.url, @website.url
+    .btn-toolbar
+      %a.btn.btn-primary{:href => '#'}
+        %i.icon-ok-circle.icon-white
+        Request
+      - if @website.account == current_account
+        %a.btn{:href => url(:websites, :edit, :id => @website.id)}
+          %i.icon-edit
+          Edit Website
+        %a.btn.btn-danger{:href => url(:websites, :destroy, :id => @website.id)}
+          %i.icon-trash.icon-white
+          Delete Website
