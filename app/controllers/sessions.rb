@@ -7,7 +7,13 @@ Krater.controllers :sessions do
     if account = Account.authenticate(params[:email], params[:password])
       set_current_account(account)
       flash[:success] = "Welcome #{account.name} #{account.surname}."
-      redirect url(:static, :index)
+      redirect_url = session[:redirect_url]
+      if redirect_url.nil?
+        redirect url(:static, :index)
+      else
+        session[:redirect_url] = nil
+        redirect redirect_url
+      end
     else
       flash[:warning] = "Wrong or email or password."
       redirect url(:sessions, :new)
