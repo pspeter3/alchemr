@@ -20,7 +20,7 @@ Krater.controllers :sessions do
     end
   end
   
-  get :destroy, :map => '/logout' do
+  delete :destroy, :map => '/logout' do
     set_current_account(nil)
     flash[:success] = "Successfully logged out." 
     redirect url(:static, :index)

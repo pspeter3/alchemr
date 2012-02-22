@@ -11,4 +11,4 @@
       %li= link_to 'View Profile', url(:accounts, :show, :id => current_account.id)
       %li= link_to 'Edit Account', url(:accounts, :edit, :id => current_account.id)
       %li.divider
-      %li= link_to 'Logout', url_for(:sessions, :destroy)
+      %li= link_to 'Logout', url_for(:sessions, :destroy), :method => :delete
