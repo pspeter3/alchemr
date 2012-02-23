@@ -8,7 +8,6 @@ Krater.controllers :surveys do
 
   get :new do
     @survey = Survey.new
-    @survey.questions.build
     render 'surveys/new'
   end
 
