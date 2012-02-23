@@ -16,5 +16,5 @@ function removeFields(model, link) {
 
 // Add fields to a nested form
 function addFields(collection, html) {
-  $(collection).append(html);
+  $(collection).append(html.replace(/\$id/gi, new Date().getTime()));
 }
