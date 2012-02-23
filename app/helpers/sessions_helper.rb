@@ -11,7 +11,7 @@ Krater.helpers do
     end
   end
   
-  def has_permission?(condition)
+  def authroized?(condition)
     if condition
       yield
     else

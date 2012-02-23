@@ -31,7 +31,7 @@ Krater.controllers :websites do
 
   get :edit, :map => '/websites/:id/edit' do
     @website = Website.find(params[:id])
-    has_permission? @website.account == current_account do
+    authorized? @website.account == current_account do
       render 'websites/edit'
     end
   end
@@ -39,7 +39,7 @@ Krater.controllers :websites do
   put :update, :map => '/websites/:id' do
     @website = Website.find(params[:id])
     # Check for permission
-    has_permission? @website.account == current_account do
+    authorized? @website.account == current_account do
       # Check for update
       if @website.update_attributes(params[:website])
         flash[:success] = 'Website was successfully updated.'
@@ -52,7 +52,7 @@ Krater.controllers :websites do
 
   delete :destroy, :map => '/websites/:id' do
     website = Website.find(params[:id])
-    has_permission? website.account == current_account do
+    authorized? website.account == current_account do
       if website.destroy
         flash[:success] = 'Website succesfully deleted.'
         redirect url(:websites, :index)
