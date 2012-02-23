@@ -23,6 +23,6 @@
       = partial 'questions/form', :locals => {:f => qf}
   .form-actions
     = f.submit text, :class => 'btn btn-primary'
-    %button.btn{:onclick => add_fields('.questions', :questions, f)}
+    %button.btn{:onclick => add_fields('.questions')}
       %i.icon-plus-sign
       Add Question
