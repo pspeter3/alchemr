@@ -8,12 +8,15 @@ Krater.controllers :surveys do
 
   get :new do
     @survey = Survey.new
-    @survey.questions << Question.new(:prompt => 'Test', :type => :select, :options => [1, 2, 3])
+    @survey.questions.build(:prompt => 'Test')
     render 'surveys/new'
   end
 
   post :create, :map => '/surveys', :provides => :json do
-    params.to_json
+    @survey = Survey.new(params[:survey])
+    @survey.account = current_account
+    @survey.save
+    @survey.to_json
   end
 
   get :show do

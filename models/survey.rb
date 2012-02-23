@@ -11,7 +11,7 @@ class Survey
   validates_presence_of :title
   validates_numericality_of :cap
   
-  embeds_many :questions
+  embeds_many :questions, :autosave => true
   accepts_nested_attributes_for :questions
   belongs_to :account
 end

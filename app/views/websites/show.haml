@@ -5,13 +5,22 @@
     %p= @website.desc
     %p= link_to @website.url, @website.url
     .btn-toolbar
-      %a.btn.btn-primary{:href => '#'}
-        %i.icon-ok-circle.icon-white
-        Request
+      .btn-group
+        %a.btn.btn-primary{:href => '#'}
+          %i.icon-ok-circle.icon-white
+          Request
       - if @website.account == current_account
-        %a.btn{:href => url(:websites, :edit, :id => @website.id)}
-          %i.icon-edit
-          Edit Website
-        %a.btn.btn-danger{:href => url(:websites, :destroy, :id => @website.id), 'data-method' => 'delete'}
-          %i.icon-trash.icon-white
-          Delete Website
+        .btn-group
+          %a.btn.dropdown-toggle{:href => '#', 'data-toggle' => 'dropdown'} 
+            %i.icon-cog
+            Manage
+            %span.caret            
+          %ul.dropdown-menu
+            %li
+              %a{:href => url(:websites, :edit, :id => @website.id)}
+                %i.icon-edit
+                Edit Website
+            %li
+              %a{:href => url(:websites, :destroy, :id => @website), 'data-method' => 'delete', 'data-confirm' => 'Are you sure?'}
+                %i.icon-trash
+                Delete Website
