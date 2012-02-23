@@ -1,4 +1,6 @@
-.question
+.question.fields
+  = f.hidden_field :_destroy
+  = remove_fields('.question')
   .control-group
     = f.label :prompt, :caption => 'Prompt', :class => 'control-label'
     .controls
@@ -22,4 +24,3 @@
       = f.text_area :options, :class => 'span4', :value => f.object.options.join(';')
       %p.help-block
         Separate options with a semicolon. Ex: a;b;c;d
-  

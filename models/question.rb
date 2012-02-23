@@ -9,6 +9,7 @@ class Question
   
   validates_presence_of :prompt
   validates_presence_of :type
+  validates_presence_of :options
   
   embedded_in :survey
 end

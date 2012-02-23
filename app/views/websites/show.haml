@@ -17,10 +17,10 @@
             %span.caret            
           %ul.dropdown-menu
             %li
-              %a{:href => url(:websites, :edit, :id => @website.id)}
+              = link_to url(:websites, :edit, :id => @website.id) do
                 %i.icon-edit
                 Edit Website
             %li
-              %a{:href => url(:websites, :destroy, :id => @website), 'data-method' => 'delete', 'data-confirm' => 'Are you sure?'}
+              = link_to url(:websites, :destroy, :id => @website), :method => 'delete', :confirm => 'Are you sure?' do
                 %i.icon-trash
                 Delete Website

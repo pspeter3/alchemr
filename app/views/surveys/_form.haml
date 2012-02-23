@@ -18,8 +18,9 @@
     .controls
       = f.text_field :cap, :class => 'span4'
   %h2 Questions
-  = f.fields_for :questions do |qf|
-    = partial 'questions/form', :locals => {:f => qf}
+  .questions
+    = f.fields_for :questions do |qf|
+      = partial 'questions/form', :locals => {:f => qf}
   .form-actions
     = f.submit text, :class => 'btn btn-primary'
     %button.btn
