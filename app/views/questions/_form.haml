@@ -1,15 +1,10 @@
-.question
+.question{:id => '$id'}
   = f.error_messages :class => 'alert alert-error'
-  = f.hidden_field :_destroy
-  = remove_fields('.question')
   .control-group
     = f.label :prompt, :caption => 'Prompt', :class => 'control-label'
     .controls
       = f.text_field :prompt, :class => 'span4'
-  .control-group
-    = f.label :img, :caption => 'Optional Image URL', :class => 'control-label'
-    .controls
-      = f.text_field :img, :class => 'span4'
+  .control-group.img{:style => 'display:none'}
   .control-group
     = f.label :required, :caption => 'Required', :class => 'control-label'
     .controls
@@ -21,7 +16,17 @@
       = f.select :type, :options => [['Multiple Choice', :multiple], ['Select Field', :select], ['Checkboxes', :checkbox]], :class => 'span4'
   .control-group
     = f.label :options, :caption => 'Options', :class => 'control-label'
-    .controls
-      = f.text_area :options, :class => 'span4', :value => f.object.options.join(';')
-      %p.help-block
-        Separate options with a semicolon. Ex: a;b;c;d
+    .controls.options
+      .input-append
+        = text_field_tag 'survey[questions_attributes][$id][options][0]', :class => 'span4'
+        %span.add-on
+          %a.close &times;
+  = f.hidden_field :_destroy
+  .btn-group
+    = link_to '#', :class => 'btn', :onclick => 'addQuestionOption($id);' do
+      %i.icon-pencil
+      Add Option
+    = link_to '#', :class => 'btn add-image', :onclick => 'addQuestionImage($id);' do
+      %i.icon-camera
+      Add Image
+    = remove_fields('.question')

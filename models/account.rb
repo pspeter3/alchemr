@@ -23,6 +23,7 @@ class Account
   
   # Associations
   has_many :websites
+  has_many :surveys
   
   # Callbacks
   before_save :encrypt_password, :if => :password_required

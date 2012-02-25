@@ -1,6 +1,6 @@
 Krater.helpers do
   def remove_fields(model)
-    link_to '<i class="icon-remove-sign icon-white"></i> Remove', '#', :class => 'btn btn-danger pull-right', :onclick => "removeFields('#{model}', this); return false;"
+    link_to '<i class="icon-remove-sign icon-white"></i> Remove', '#', :class => 'btn btn-danger', :onclick => "removeFields('#{model}', this); return false;"
   end
   
   def add_fields(association, f)
