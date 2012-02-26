@@ -4,7 +4,6 @@ class Survey
   
   field :title, :type => String
   field :desc, :type => String
-  field :sites, :type => Array, :default => []
   field :active, :type => Boolean, :default => true
   field :cap, :type => Integer
   
@@ -12,6 +11,6 @@ class Survey
   validates_numericality_of :cap
   
   embeds_many :questions
-  accepts_nested_attributes_for :questions
+  accepts_nested_attributes_for :questions, :reject_if => proc {|attr| attr['prompt'].blank? && attr['options'].empty? }
   belongs_to :account
 end

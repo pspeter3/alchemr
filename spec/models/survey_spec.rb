@@ -7,7 +7,6 @@ describe Survey do
   end
   
   it { should have_fields(:title, :desc).of_type(String) }
-  it { should have_field(:sites).of_type(Array).with_default_value_of([]) }
   it { should have_field(:active).of_type(Boolean).with_default_value_of(true) }
   it { should have_field(:cap).of_type(Integer) }
   

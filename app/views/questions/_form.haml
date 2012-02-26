@@ -17,10 +17,7 @@
   .control-group
     = f.label :options, :caption => 'Options', :class => 'control-label'
     .controls.options
-      .input-append
-        = text_field_tag 'survey[questions_attributes][$id][options][0]', :class => 'span4'
-        %span.add-on
-          %a.close &times;
+
   = f.hidden_field :_destroy
   .btn-group
     = link_to '#', :class => 'btn', :onclick => 'addQuestionOption($id);' do

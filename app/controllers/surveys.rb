@@ -14,17 +14,17 @@ Krater.controllers :surveys do
   end
 
   post :create, :map => '/surveys', :provides => :json do
-    params[:survey].to_json
-#    split_options
-#    puts params.to_json
-#    @survey = Survey.new(params[:survey])
-#    @survey.account = current_account
-#    if @survey.save
-#      flash[:success] = 'Survey successfully created.'
-#      redirect url(:surveys, :show, :id => @survey.id)
-#    else
-#      render 'surveys/new'
-#    end
+    convert_options
+    puts params[:survey].to_json
+    @survey = Survey.new(params[:survey])
+    @survey.account = current_account
+    if @survey.save
+      flash[:success] = 'Survey successfully created.'
+      @survey.to_json
+      # redirect url(:surveys, :show, :id => @survey.id)
+    else
+      render 'surveys/new'
+    end
   end
 
   get :show, :map => '/surveys/:id', :provides => :json do
