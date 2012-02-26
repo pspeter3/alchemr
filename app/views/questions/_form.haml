@@ -16,7 +16,7 @@
   .control-group
     = f.label :type, :caption => 'Question Type', :class => 'control-label'
     .controls
-      = f.select :type, :options => [['Multiple Choice', :multiple], ['Select Field', :select], ['Checkboxes', :checkbox]], :class => 'span4'
+      = f.select :type, :options => [['Radio Button', 'radio'], ['Select', 'select'], ['Check Box', 'check']], :class => 'span4'
   .control-group
     = f.label :options, :caption => 'Options', :class => 'control-label'
     .controls.options

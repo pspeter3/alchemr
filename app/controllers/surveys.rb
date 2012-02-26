@@ -25,15 +25,24 @@ Krater.controllers :surveys do
     end
   end
 
-  get :show, :map => '/surveys/:id', :provides => :json do
+  get :show, :map => '/surveys/:id' do
     @survey = Survey.find(params[:id])
-    @survey.to_json
+    render 'surveys/show'
   end
 
-  get :edit do
+  get :edit, :map => '/surveys/:id/edit' do
+    @survey = Survey.find(params[:id])
+    render 'surveys/edit'
   end
 
   put :update, :map => '/surveys/:id' do
     convert_options
+    @survey = Survey.find(params[:id])
+    if @survey.update_attributes(params[:survey])
+      flash[:success] = 'Survey was successfully updated.'
+      redirect url(:surveys, :show, :id => @survey.id)
+    else
+      render 'surveys/edit'
+    end
   end
 end
