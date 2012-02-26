@@ -24,15 +24,10 @@ function addQuestionOption(id) {
   var template = '<div class="input-append">' +
         '<input class="span4" name="survey[questions_attributes][$id][options][$time]" type="text">' +
         '<span class="add-on">' +
-          '<a class="close">×</a>' +
+          '<a class="close" onclick="$(this).parents(\'.input-append\').remove();">×</a>' +
         '</span>' +
       '</div>'
   template = template.replace(/\$id/gi, id);
   template = template.replace(/\$time/gi, new Date().getTime());
-  console.log(template);
   $('#' + id + ' .options').append(template);
-  // Removes fields
-  $('.add-on .close').click(function() {
-    $(this).parents('.input-append').remove();
-  });
 }
