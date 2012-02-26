@@ -13,15 +13,14 @@ Krater.controllers :surveys do
     render 'surveys/new'
   end
 
-  post :create, :map => '/surveys', :provides => :json do
+  post :create, :map => '/surveys' do
     convert_options
     puts params[:survey].to_json
     @survey = Survey.new(params[:survey])
     @survey.account = current_account
     if @survey.save
       flash[:success] = 'Survey successfully created.'
-      @survey.to_json
-      # redirect url(:surveys, :show, :id => @survey.id)
+      redirect url(:surveys, :show, :id => @survey.id)
     else
       render 'surveys/new'
     end
