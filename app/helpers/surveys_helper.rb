@@ -9,6 +9,7 @@ Krater.helpers do
         else
           v[:options] = v[:options].map {|k, v| v }
         end
+        v[:options].delete_if {|i| i.blank? }
       end
     end
   end

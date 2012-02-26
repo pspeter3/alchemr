@@ -15,7 +15,6 @@ Krater.controllers :surveys do
 
   post :create, :map => '/surveys' do
     convert_options
-    puts params[:survey].to_json
     @survey = Survey.new(params[:survey])
     @survey.account = current_account
     if @survey.save
@@ -34,6 +33,7 @@ Krater.controllers :surveys do
   get :edit do
   end
 
-  put :update do
+  put :update, :map => '/surveys/:id' do
+    convert_options
   end
 end
