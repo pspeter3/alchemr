@@ -36,5 +36,4 @@ Krater.controllers :surveys do
 
   put :update do
   end
-
 end
