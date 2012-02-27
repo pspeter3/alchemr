@@ -7,6 +7,7 @@ source :rubygems
 # Project requirements
 gem 'rake'
 gem 'sinatra-flash', :require => 'sinatra/flash'
+gem 'heroku'
 
 # Component requirements
 gem 'bcrypt-ruby', :require => "bcrypt"

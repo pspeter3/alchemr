@@ -32,17 +32,21 @@ Alchemr.controllers :surveys do
 
   get :edit, :map => '/surveys/:id/edit' do
     @survey = Survey.find(params[:id])
-    render 'surveys/edit'
+    authroized? @survey.account == current_account do
+      render 'surveys/edit'
+    end
   end
 
   put :update, :map => '/surveys/:id' do
     convert_options
     @survey = Survey.find(params[:id])
-    if @survey.update_attributes(params[:survey])
-      flash[:success] = 'Survey was successfully updated.'
-      redirect url(:surveys, :show, :id => @survey.id)
-    else
-      render 'surveys/edit'
+    authorized? @survey.account == current_account do
+      if @survey.update_attributes(params[:survey])
+        flash[:success] = 'Survey was successfully updated.'
+        redirect url(:surveys, :show, :id => @survey.id)
+      else
+        render 'surveys/edit'
+      end
     end
   end
 end
