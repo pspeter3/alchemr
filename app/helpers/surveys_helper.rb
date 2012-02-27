@@ -4,12 +4,13 @@ Krater.helpers do
   def convert_options
     unless params[:survey][:questions_attributes].nil?
       params[:survey][:questions_attributes].each do |k, v| 
-        if v[:options].nil? 
-          v[:options] = []
+        if v[:options_attributes].nil? 
+          v['options'] = []
         else
-          v[:options] = v[:options].map {|k, v| v }
+          v['options'] = v[:options_attributes].map {|k, v| v }
         end
-        v[:options].delete_if {|i| i.blank? }
+        v['options'].delete_if {|i| i.blank? }
+        v.delete 'options_attributes'
       end
     end
   end

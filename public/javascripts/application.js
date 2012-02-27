@@ -20,14 +20,16 @@ function addFields(collection, html) {
 }
 
 // Add an option to the question
-function addQuestionOption(id) {
+function addQuestionOption(link) {
+  var parent = $(link).parents('.question');
+  var id = $(parent).find(':input').first().attr('name').match(/\d+/)[0];
   var template = '<div class="input-append">' +
-        '<input class="span4" name="survey[questions_attributes][$id][options][$time]" type="text">' +
+        '<input class="span4" name="survey[questions_attributes][$id][options_attributes][$time]" type="text">' +
         '<span class="add-on">' +
           '<a class="close" onclick="$(this).parents(\'.input-append\').remove();">×</a>' +
         '</span>' +
       '</div>'
   template = template.replace(/\$id/gi, id);
   template = template.replace(/\$time/gi, new Date().getTime());
-  $('#' + id + ' .options').append(template);
+  parent.find('.options').append(template);
 }

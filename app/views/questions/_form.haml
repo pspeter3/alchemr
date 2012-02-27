@@ -1,4 +1,4 @@
-.question{:id => '$id'}
+.question
   = f.error_messages :class => 'alert alert-error'
   .control-group
     = f.label :prompt, :caption => 'Prompt', :class => 'control-label'
@@ -20,9 +20,14 @@
   .control-group
     = f.label :options, :caption => 'Options', :class => 'control-label'
     .controls.options
+      - f.fields_for :options do |of|
+        .input-append
+          = of.text_field '', :class => 'span4', :value => of.object
+          .add-on
+            %a.close{:onclick => "$(this).parents(\'.input-append\').remove()"} &times;
   = f.hidden_field :_destroy
   .btn-group.question-toolbar
-    = link_to '#', :class => 'btn', :onclick => 'addQuestionOption($id);' do
+    = link_to '#', :class => 'btn', :onclick => "addQuestionOption(this);" do
       %i.icon-pencil
       Add Option
     = remove_fields('.question')
