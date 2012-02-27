@@ -15,4 +15,5 @@ class Website
   
   # Associations
   belongs_to :account
+  has_and_belongs_to_many :surveys
 end
