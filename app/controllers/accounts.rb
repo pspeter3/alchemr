@@ -1,4 +1,4 @@
-Krater.controllers :accounts do
+Alchemr.controllers :accounts do
   get :new do
     @account = Account.new
     render 'accounts/new'

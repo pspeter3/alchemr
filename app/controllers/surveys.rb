@@ -1,4 +1,4 @@
-Krater.controllers :surveys do
+Alchemr.controllers :surveys do
   before do
     require_login
   end

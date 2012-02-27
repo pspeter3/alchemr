@@ -1,0 +1,18 @@
+.control-group
+  = label_tag question.id, :caption => question.prompt, :class => 'control-label'
+  - unless question.img.blank?
+    = image_tag question.img
+  .controls
+    - case question.type
+      - when 'radio'
+        - question.options.each do |option|
+          %label.radio
+            = radio_button_tag question.id, :value => option
+            = option
+      - when 'check'
+        - question.options.each do |option|
+          %label.checkbox
+            = check_box_tag question.id, :value => option
+            = option
+      - when 'select'
+        = select_tag question.id, :options => question.options

@@ -1,6 +1,6 @@
 # Helper methods defined here can be accessed in any controller or view in the application
 
-Krater.helpers do
+Alchemr.helpers do
   # Check to make sure the user is logged in. If not, add a login in redirect
   # so users can go where they wanted to
   def require_login

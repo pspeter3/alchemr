@@ -1,4 +1,4 @@
-Krater.helpers do
+Alchemr.helpers do
   def remove_fields(model)
     link_to '<i class="icon-remove-sign icon-white"></i> Remove', '#', :class => 'btn btn-danger', :onclick => "removeFields('#{model}', this); return false;"
   end

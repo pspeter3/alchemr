@@ -1,0 +1,9 @@
+.row
+  .span12
+    .page-header
+      %h1= @survey.title
+    %p= @survey.desc
+    - form_tag '#' do
+      - field_set_tag do
+        - @survey.questions.each do |question|
+          = partial 'questions/show', :locals => {:question => question}

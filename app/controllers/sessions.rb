@@ -1,4 +1,4 @@
-Krater.controllers :sessions do
+Alchemr.controllers :sessions do
   get :new, :map => '/login' do
     render 'sessions/new'
   end

@@ -1,4 +1,4 @@
-class Krater < Padrino::Application
+class Alchemr < Padrino::Application
   register Padrino::Rendering
   register Padrino::Mailer
   register Padrino::Helpers

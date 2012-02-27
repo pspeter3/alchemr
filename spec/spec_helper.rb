@@ -15,5 +15,5 @@ def app
   ##
   # You can handle all padrino applications using instead:
   #   Padrino.application
-  Krater.tap { |app|  }
+  Alchemr.tap { |app|  }
 end

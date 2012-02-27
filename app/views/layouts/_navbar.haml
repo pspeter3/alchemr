@@ -1,7 +1,7 @@
 .navbar.navbar-fixed-top
   .navbar-inner
     .container
-      = link_to 'Krater', url(:static, :index), :class => 'brand'
+      = link_to 'Alchemr', url(:static, :index), :class => 'brand'
       - if logged_in?
         = partial 'layouts/nav_logged_in'
       - else

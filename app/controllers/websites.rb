@@ -1,4 +1,4 @@
-Krater.controllers :websites do
+Alchemr.controllers :websites do
   before do
     require_login
   end
