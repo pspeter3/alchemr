@@ -8,6 +8,7 @@ source :rubygems
 gem 'rake'
 gem 'sinatra-flash', :require => 'sinatra/flash'
 gem 'heroku'
+gem 'unicorn'
 
 # Component requirements
 gem 'bcrypt-ruby', :require => "bcrypt"
