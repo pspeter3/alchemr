@@ -4,12 +4,16 @@ host = 'localhost'
 port = Mongo::Connection::DEFAULT_PORT
 
 database_name = case Padrino.env
-  when :development then 'krater_development'
-  when :production  then 'krater_production'
-  when :test        then 'krater_test'
+  when :development then 'alchemr_development'
+  when :test        then 'alchemr_test'
 end
 
-Mongoid.database = Mongo::Connection.new(host, port).db(database_name)
+if Padrino.env == :production
+  Mongoid.database = Mongo::Connection.new('staff.mongohq.com', 10000).db('alchemr')
+  Mongoid.database.authenticate 'alchemrapp', 'alchemrmh'
+else
+  Mongoid.database = Mongo::Connection.new(host, port).db(database_name)
+end
 
 # You can also configure Mongoid this way
 # Mongoid.configure do |config|
