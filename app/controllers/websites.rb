@@ -49,17 +49,4 @@ Alchemr.controllers :websites do
       end
     end
   end
-
-  delete :destroy, :map => '/websites/:id' do
-    website = Website.find(params[:id])
-    authorized? website.account == current_account do
-      if website.destroy
-        flash[:success] = 'Website succesfully deleted.'
-        redirect url(:websites, :index)
-      else
-        flash[:error] = 'Website cannot be deleted.'
-        redirect url(:webiste, :show, :id => website.id)
-      end
-    end 
-  end
 end

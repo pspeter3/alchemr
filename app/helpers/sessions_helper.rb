@@ -11,7 +11,7 @@ Alchemr.helpers do
     end
   end
   
-  def authroized?(condition)
+  def authorized?(condition)
     if condition
       yield
     else

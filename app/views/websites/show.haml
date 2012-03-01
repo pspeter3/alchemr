@@ -10,17 +10,6 @@
           %i.icon-ok-circle.icon-white
           Request
       - if @website.account == current_account
-        .btn-group
-          %a.btn.dropdown-toggle{:href => '#', 'data-toggle' => 'dropdown'} 
-            %i.icon-cog
-            Manage
-            %span.caret            
-          %ul.dropdown-menu
-            %li
-              = link_to url(:websites, :edit, :id => @website.id) do
-                %i.icon-edit
-                Edit Website
-            %li
-              = link_to url(:websites, :destroy, :id => @website), :method => 'delete', :confirm => 'Are you sure?' do
-                %i.icon-trash
-                Delete Website
+        = link_to url(:websites, :edit, :id => @website.id), :class => 'btn' do
+          %i.icon-edit
+          Edit Website
