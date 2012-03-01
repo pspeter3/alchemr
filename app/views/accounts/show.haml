@@ -14,7 +14,7 @@
         - @account.websites.each do |website|
           %tr
             %td= link_to h!(website.name), url(:websites, :show, :id => website.id)
-            %td= link_to h!(website.url), website.url
+            %td= link_to h!(website.url), h!(website.url)
             %td= h! website.desc
   .span6
     %h2 Surveys

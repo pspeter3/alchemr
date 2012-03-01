@@ -1,6 +1,6 @@
 - unless question.img.blank?
   .thumbnail
-    = image_tag question.img
+    = image_tag h!(question.img)
 .control-group
   = label_tag question.id, :caption => h!(question.prompt), :class => 'control-label alchemr-label'
   .controls
