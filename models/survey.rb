@@ -14,7 +14,7 @@ class Survey
   embeds_many :questions
   accepts_nested_attributes_for :questions, :reject_if => proc {|attr| attr['prompt'].blank? && attr['options'].empty? }
   belongs_to :account
-  has_and_belongs_to_many :websites
+  has_many :requests
   
   private
   def has_questions
