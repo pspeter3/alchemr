@@ -2,18 +2,18 @@
   .thumbnail
     = image_tag question.img
 .control-group
-  = label_tag question.id, :caption => question.prompt, :class => 'control-label alchemr-label'
+  = label_tag question.id, :caption => h!(question.prompt), :class => 'control-label alchemr-label'
   .controls
     - case question.type
       - when 'radio'
         - question.options.each do |option|
           %label.radio
-            = radio_button_tag question.id, :value => option
+            = radio_button_tag question.id, :value => h!(option)
             = option
       - when 'check'
         - question.options.each do |option|
           %label.checkbox
-            = check_box_tag question.id, :value => option
+            = check_box_tag question.id, :value => h!(option)
             = option
       - when 'select'
         = select_tag question.id, :options => question.options

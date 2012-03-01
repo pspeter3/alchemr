@@ -12,10 +12,10 @@
       %tbody
         - @surveys.each do |survey|
           %tr
-            %td= link_to survey.title, url(:surveys, :show, :id => survey.id)
-            %td= survey.desc
+            %td= link_to h!(survey).title, url(:surveys, :show, :id => survey.id)
+            %td= h! survey.desc
             %td= survey.active.to_s.capitalize
-            %td= survey.cap
+            %td= h! survey.cap
             %td= survey.questions.size
     = link_to url(:surveys, :new), :class => 'btn btn-primary' do
       %i.icon-plus-sign.icon-white

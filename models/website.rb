@@ -6,7 +6,6 @@ class Website
   field :name, :type => String
   field :url, :type => String
   field :desc, :type => String
-  field :tags, :type => Array, :default => []
   
   # Validations
   validates_presence_of :name

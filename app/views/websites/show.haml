@@ -1,9 +1,9 @@
 .row
   .span12
     .page-header
-      %h1= @website.name
-    %p= @website.desc
-    %p= link_to @website.url, @website.url
+      %h1= h! @website.name
+    %p= h! @website.desc
+    %p= link_to h!(@website.url), @website.url
     .btn-toolbar
       .btn-group
         %a.btn.btn-primary{:href => '#'}

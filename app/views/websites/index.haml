@@ -10,9 +10,9 @@
       %tbody
         - @websites.each do |website|
           %tr
-            %td= link_to website.name, url(:websites, :show, :id => website.id)
-            %td= link_to website.url, website.url
-            %td= website.desc
+            %td= link_to h!(website.name), url(:websites, :show, :id => website.id)
+            %td= link_to h!(website.url), website.url
+            %td= h! website.desc
     = link_to url(:websites, :new), :class => 'btn btn-primary' do
       %i.icon-plus-sign.icon-white
       Add Website

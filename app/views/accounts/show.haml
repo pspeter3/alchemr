@@ -1,5 +1,31 @@
 .row
   .span12
     .page-header
-      %h1= @account.name + ' ' + @account.surname
-
+      %h1= h! "#{@account.name} #{@account.surname}"
+.row
+  .span6
+    %h2 Websites
+    %table.table.table-striped
+      %thead
+        %th Name
+        %th URL
+        %th Description
+      %tbody
+        - @account.websites.each do |website|
+          %tr
+            %td= link_to h!(website.name), url(:websites, :show, :id => website.id)
+            %td= link_to h!(website.url), website.url
+            %td= h! website.desc
+  .span6
+    %h2 Surveys
+    %table.table.table-striped
+      %thead
+        %th Title
+        %th Active
+        %th Description
+      %tbody
+        - @account.surveys.each do |survey|
+          %tr
+            %td= link_to h!(survey.title), url(:surveys, :show, :id => survey.id)
+            %td= h! survey.active.to_s.capitalize
+            %td= h! survey.desc

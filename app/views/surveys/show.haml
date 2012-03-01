@@ -1,10 +1,10 @@
 .row
   .span12
     .page-header
-      %h1= @survey.title
+      %h1= h! @survey.title
 .row
   .span6
-    %p= @survey.desc
+    %p= h! @survey.desc
     - form_tag '#', :class => 'form-horizontal' do
       - field_set_tag do
         - @survey.questions.each do |question|
