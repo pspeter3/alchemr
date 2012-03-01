@@ -7,6 +7,7 @@ Alchemr.controllers :accounts do
   post :create, :map => '/accounts' do
     @account = Account.new(params[:account])
     if @account.save
+      set_current_account(@account)
       flash[:success] = 'Account was successfully created.'
       redirect url(:accounts, :show, :id => @account.id)
     else

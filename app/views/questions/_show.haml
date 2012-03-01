@@ -1,7 +1,8 @@
-.control-group
-  = label_tag question.id, :caption => question.prompt, :class => 'control-label'
-  - unless question.img.blank?
+- unless question.img.blank?
+  .thumbnail
     = image_tag question.img
+.control-group
+  = label_tag question.id, :caption => question.prompt, :class => 'control-label alchemr-label'
   .controls
     - case question.type
       - when 'radio'

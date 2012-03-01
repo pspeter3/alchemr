@@ -2,7 +2,13 @@
   %li= link_to 'Webites', url(:websites, :index)
   %li= link_to 'Surveys', url(:surveys, :index)
   %li= link_to 'Requests', '#'
-  %li= link_to 'Messages', '#'
+  %li.dropdown
+    %a.dropdown-toggle{:href => '#', 'data-toggle' => 'dropdown'}
+      Browse
+      %b.caret
+    %ul.dropdown-menu
+      %li= link_to 'Websites', '#'
+      %li= link_to 'Surveys', '#'
 %ul.nav.pull-right
   %li.dropdown
     %a.dropdown-toggle{:href => '#', 'data-toggle' => 'dropdown'}
