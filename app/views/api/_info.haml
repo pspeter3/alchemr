@@ -1,0 +1,29 @@
+.well
+  %h3 Alchemr Information
+  .control-group
+    = label_tag :age, :class => 'control-label alchemr-label'
+    .controls
+      = select_tag :age, :options => ['< 18', '18-24', '25-35'], :class => 'span4'
+  .control-group
+    = label_tag :gender, :class => 'control-label alchemr-label'
+    .controls
+      %label.radio
+        = radio_button_tag :gender, :value => 'male'
+        Male
+      %label.radio
+        = radio_button_tag :gender, :value => 'female'
+        Female
+  .control-group
+    = label_tag :employment, :class => 'control-label alchemr-label'
+    .controls
+      %label.radio
+        = radio_button_tag :employment, :value => 'employed'
+        Employed
+      %label.radio
+        = radio_button_tag :employment, :value => 'unemployed'
+        Unemployed
+      %label.radio
+        = radio_button_tag :employment, :value => 'student'
+        Student
+  %p.help-block
+    Read more about our privacy policy here

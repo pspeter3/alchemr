@@ -2,11 +2,10 @@
   .span6
     .page-header
       %h1= h! @survey.title
-- if !@website.msg.blank? && !@survey.desc.blank?
-  .row
-    .span3
-      %h2 Survey Description
-      %p= h! @survey.desc
-    .span3
-      %h2 Message from #{h!(@website.name)}
-      %p= h! @website.desc
+.row
+  .span6
+    - form_tag url(:api, :respond, :key => @website.key), :class => 'form-horizontal' do
+      - field_set_tag do
+        - @survey.questions.each do |question|
+          = partial 'questions/show', :locals => {:question => question}
+        = partial 'api/info'

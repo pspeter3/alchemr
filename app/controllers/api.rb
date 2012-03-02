@@ -1,11 +1,11 @@
 Alchemr.controllers :api do
-  get :call, :map => '/api' do
-    @website = Website.where(:key => params[:key]).only(:id, :name, :msg).first
-    @survey = Survey.where(:users => {"$ne" => current_user[:id]}, :active => true).only(:id, :title, :desc, :questions).first
-    @survey.to_json
+  get :call, :map => '/api/:key' do
+    @website = Website.where(:key => params[:key]).only(:key, :name, :msg).first
+    @survey = Survey.where(:users => {"$ne" => current_user[:id]}, :active => true).only(:title, :desc, :questions).first
     render 'api/call'
   end
   
-  post :response, :map => '/api' do
+  post :respond, :map => '/api/:key', :provides => :json do
+    params.to_json
   end
 end
