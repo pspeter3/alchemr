@@ -25,4 +25,5 @@ Alchemr.helpers do
       flash[:warning] = 'You are already logged in'
       redirect url(:static, :index)
     end
+  end
 end
