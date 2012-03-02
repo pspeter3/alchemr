@@ -16,6 +16,7 @@ gem 'haml'
 gem 'mongoid', '2.4.4'
 gem 'bson_ext', :require => "mongo"
 gem 'mongoid_denormalize'
+gem 'rdiscount'
 
 # Test requirements
 gem 'rspec', :group => "test"

@@ -6,6 +6,11 @@ $(function() {
   $(".alert h2").addClass("alert-heading");
   // Adds alert support
   $(".alert-message").alert();
+  // Add binding for bills
+  setMaxBill();
+  $(".max input").change(function() {
+    setMaxBill();
+  });
 });
 
 // Remove fields from a nested form
@@ -32,4 +37,13 @@ function addQuestionOption(link) {
   template = template.replace(/\$id/gi, id);
   template = template.replace(/\$time/gi, new Date().getTime());
   parent.find('.options').append(template);
+}
+
+function setMaxBill() {
+  var maxResponses = $(".max input").val();
+  var bill = '$';
+  if (maxResponses !== undefined) {
+    bill = "$" + (0.12 * maxResponses) 
+  }
+  $(".max .help-block").html($(".max .help-block").html().replace(/\$\d+.?\d*/, bill));
 }

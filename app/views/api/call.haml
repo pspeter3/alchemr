@@ -1,0 +1,12 @@
+.row
+  .span6
+    .page-header
+      %h1= h! @survey.title
+- if !@website.msg.blank? && !@survey.desc.blank?
+  .row
+    .span3
+      %h2 Survey Description
+      %p= h! @survey.desc
+    .span3
+      %h2 Message from #{h!(@website.name)}
+      %p= h! @website.desc

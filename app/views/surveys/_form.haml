@@ -15,8 +15,10 @@
         = f.check_box :active
   .control-group
     = f.label :max, :caption => 'Max Responses', :class => 'control-label'
-    .controls
+    .controls.max
       = f.text_field :max, :class => 'span4'
+      %p.help-block
+        Max bill is $0
   .control-group
     = f.label :restricted, :caption => 'Restricted', :class => 'control-label'
     .controls

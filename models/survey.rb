@@ -8,10 +8,11 @@ class Survey
   field :active, :type => Boolean, :default => true
   field :max, :type => Integer
   field :restricted, :type => Boolean, :default => false
+  field :users, :type => Array, :default => []
   
   validates_presence_of :title
   validates_presence_of :max
-  validates_numericality_of :max
+  validates_numericality_of :max, :greater_than_or_equal_to => 50, :only_integer => true
   validate :has_questions
   
   embeds_many :questions

@@ -13,6 +13,10 @@
     .controls
       = f.text_area :desc, :class => 'span4'
   .control-group
+    = f.label :msg, :caption => 'Message', :class => 'control-label'
+    .controls
+      = f.text_area :msg, :class => 'span4'
+  .control-group
     = f.label :restricted, :caption => 'Restricted', :class => 'control-label'
     .controls
       %label.checkbox

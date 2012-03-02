@@ -6,6 +6,11 @@
         %small= link_to h!(@website.url), h!(@website.url)
 .row
   .span6
-    %p= h! @website.desc
+    - unless @website.desc.blank?
+      %h3 Description
+      %p= h! @website.desc
+    - unless @website.msg.blank?
+      %h3 Message
+      %p= h! @website.msg
   .span6
     = partial 'common/stats', :locals => {:model => @website}

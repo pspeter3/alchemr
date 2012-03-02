@@ -26,6 +26,7 @@ Alchemr.controllers :static do
   end
 
   get :faq, :map => '/faq' do
+    render 'static/faq'
   end
   
 end

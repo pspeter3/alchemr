@@ -1,7 +1,6 @@
 %table.table.table-striped
   %thead
     %th Title
-    %th Description
     %th Active
     %th Max
     %th Questions
@@ -10,7 +9,6 @@
     - surveys.each do |survey|
       %tr
         %td= link_to h!(survey.title), url(:surveys, :show, :id => survey.id)
-        %td= h! survey.desc
         %td= survey.active.to_s.capitalize
         %td= survey.max
         %td= survey.questions.size
