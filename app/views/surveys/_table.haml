@@ -12,6 +12,6 @@
         %td= link_to h!(survey.title), url(:surveys, :show, :id => survey.id)
         %td= h! survey.desc
         %td= survey.active.to_s.capitalize
-        %td= survey.cap
+        %td= survey.max
         %td= survey.questions.size
         %td= survey.restricted.to_s.capitalize

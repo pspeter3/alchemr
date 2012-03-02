@@ -10,7 +10,7 @@ $(function() {
 
 // Remove fields from a nested form
 function removeFields(model, link) {  
-    $(link).prev("input[type=hidden]").value = "1";  
+    $(link).parent().prev("input[type=hidden]").attr("value", "1");  
     $(link).parents(model).hide();  
 }
 

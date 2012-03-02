@@ -16,4 +16,4 @@
             = check_box_tag question.id, :value => h!(option)
             = option
       - when 'select'
-        = select_tag question.id, :options => question.options
+        = select_tag question.id, :options => question.options, :class => 'span4'

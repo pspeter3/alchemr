@@ -27,7 +27,7 @@
             %a.close{:onclick => "$(this).parents(\'.input-append\').remove()"} &times;
   = f.hidden_field :_destroy
   .btn-group.question-toolbar
-    = link_to '#', :class => 'btn', :onclick => "addQuestionOption(this);" do
+    = link_to '#', :class => 'btn', :onclick => "addQuestionOption(this); return false;" do
       %i.icon-pencil
       Add Option
     = remove_fields('.question')

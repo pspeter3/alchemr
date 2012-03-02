@@ -8,6 +8,7 @@ class Website
   field :url, :type => String
   field :desc, :type => String
   field :restricted, :type => Boolean, :default => false
+  field :key, :type => String
   
   # Validations
   validates_presence_of :name
@@ -20,4 +21,12 @@ class Website
   
   # Denormalization
   denormalize :fullname, :from => :account
+  
+  # Callbacks
+  before_create :generate_key
+  
+  private
+    def generate_key
+      self.key = Digest::MD5.hexdigest(self.id.to_s + self.created_at.to_i.to_s)
+    end
 end

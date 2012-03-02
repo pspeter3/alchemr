@@ -10,11 +10,12 @@ class Survey
   field :restricted, :type => Boolean, :default => false
   
   validates_presence_of :title
-  validates_numericality_of :cap
+  validates_presence_of :max
+  validates_numericality_of :max
   validate :has_questions
   
   embeds_many :questions
-  accepts_nested_attributes_for :questions, :reject_if => proc {|attr| attr['prompt'].blank? && attr['options'].empty? }
+  accepts_nested_attributes_for :questions, :reject_if => proc {|attr| attr['prompt'].blank? && attr['options'].empty? }, :allow_destroy => true
   belongs_to :account
   has_many :requests
   

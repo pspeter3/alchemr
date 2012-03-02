@@ -4,7 +4,8 @@
       %h1= h! @survey.title
 .row
   .span6
-    %p= h! @survey.desc
+    - unless @survey.desc.blank?
+      %p= h! @survey.desc
     - form_tag '#', :class => 'form-horizontal' do
       - field_set_tag do
         - @survey.questions.each do |question|
