@@ -19,4 +19,10 @@ Alchemr.helpers do
       redirect url(:static, :index)
     end
   end
+  
+  def require_logged_out
+    if logged_in?
+      flash[:warning] = 'You are already logged in'
+      redirect url(:static, :index)
+    end
 end

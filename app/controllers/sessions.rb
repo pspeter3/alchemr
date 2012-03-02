@@ -1,4 +1,8 @@
 Alchemr.controllers :sessions do
+  before :new, :create do
+    require_logged_out
+  end
+  
   get :new, :map => '/login' do
     render 'sessions/new'
   end
