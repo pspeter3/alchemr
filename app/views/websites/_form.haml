@@ -3,14 +3,19 @@
   .control-group
     = f.label :name, :caption => 'Name', :class => 'control-label'
     .controls
-      = f.text_field :name, :class => 'span5'
+      = f.text_field :name, :class => 'span4'
   .control-group
     = f.label :url, :caption => 'URL', :class => 'control-label'
     .controls
-      = f.text_field :url, :class => 'span5'
+      = f.text_field :url, :class => 'span4'
   .control-group
     = f.label :desc, :caption => 'Description', :class => 'control-label'
     .controls
-      = f.text_area :desc, :class => 'span5'
+      = f.text_area :desc, :class => 'span4'
+  .control-group
+    = f.label :restricted, :caption => 'Restricted', :class => 'control-label'
+    .controls
+      %label.checkbox
+        = f.check_box :restricted
   .form-actions
     = f.submit text, :class => 'btn btn-primary'

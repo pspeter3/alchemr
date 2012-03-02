@@ -1,0 +1,13 @@
+%table.table.table-striped
+  %thead
+    %th Name
+    %th Description
+    %th URL
+    %th Restricted
+  %tbody
+    - websites.each do |website|
+      %tr
+        %td= link_to h!(website.name), url(:websites, :show, :id => website.id)
+        %td= link_to h!(website.url), h!(website.url)
+        %td= h! website.desc
+        %td= website.restricted.to_s.capitalize

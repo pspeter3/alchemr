@@ -1,0 +1,13 @@
+.well
+  %h3
+    Created by
+    = link_to h!(model.account_fullname), url(:accounts, :show, :id => model.account_id)
+  .btn-toolbar
+    - if model.restricted
+      %a.btn.btn-primary{:href => '#'}
+        %i.icon-ok-circle.icon-white
+        Request
+    - if model.account == current_account
+      = link_to url(model.class.to_s.downcase.pluralize.to_sym, :edit, :id => model.id), :class => 'btn' do
+        %i.icon-edit
+        Edit #{model.class}

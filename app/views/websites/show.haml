@@ -1,15 +1,11 @@
 .row
   .span12
     .page-header
-      %h1= h! @website.name
+      %h1
+        = h! @website.name
+        %small= link_to h!(@website.url), h!(@website.url)
+.row
+  .span6
     %p= h! @website.desc
-    %p= link_to h!(@website.url), h!(@website.url)
-    .btn-toolbar
-      .btn-group
-        %a.btn.btn-primary{:href => '#'}
-          %i.icon-ok-circle.icon-white
-          Request
-      - if @website.account == current_account
-        = link_to url(:websites, :edit, :id => @website.id), :class => 'btn' do
-          %i.icon-edit
-          Edit Website
+  .span6
+    = partial 'common/stats', :locals => {:model => @website}

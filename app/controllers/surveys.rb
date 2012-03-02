@@ -32,7 +32,7 @@ Alchemr.controllers :surveys do
 
   get :edit, :map => '/surveys/:id/edit' do
     @survey = Survey.find(params[:id])
-    authroized? @survey.account == current_account do
+    authorized? @survey.account == current_account do
       render 'surveys/edit'
     end
   end

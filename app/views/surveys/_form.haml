@@ -14,9 +14,14 @@
       %label.checkbox
         = f.check_box :active
   .control-group
-    = f.label :cap, :caption => 'Cap', :class => 'control-label'
+    = f.label :max, :caption => 'Max Responses', :class => 'control-label'
     .controls
-      = f.text_field :cap, :class => 'span4'
+      = f.text_field :max, :class => 'span4'
+  .control-group
+    = f.label :restricted, :caption => 'Restricted', :class => 'control-label'
+    .controls
+      %label.checkbox
+        = f.check_box :restricted
   %h2 Questions
   .questions
     = f.fields_for :questions do |qf|

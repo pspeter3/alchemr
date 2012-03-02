@@ -9,3 +9,5 @@
       - field_set_tag do
         - @survey.questions.each do |question|
           = partial 'questions/show', :locals => {:question => question}
+  .span6
+    = partial 'common/stats', :locals => {:model => @survey}

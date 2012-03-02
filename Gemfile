@@ -15,6 +15,7 @@ gem 'bcrypt-ruby', :require => "bcrypt"
 gem 'haml'
 gem 'mongoid', '2.4.4'
 gem 'bson_ext', :require => "mongo"
+gem 'mongoid_denormalize'
 
 # Test requirements
 gem 'rspec', :group => "test"

@@ -1,11 +1,13 @@
 class Website
   include Mongoid::Document
   include Mongoid::Timestamps # adds created_at and updated_at fields
+  include Mongoid::Denormalize
   
   # Fields
   field :name, :type => String
   field :url, :type => String
   field :desc, :type => String
+  field :restricted, :type => Boolean, :default => false
   
   # Validations
   validates_presence_of :name
@@ -15,4 +17,7 @@ class Website
   # Associations
   belongs_to :account
   has_many :requests
+  
+  # Denormalization
+  denormalize :fullname, :from => :account
 end

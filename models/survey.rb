@@ -1,11 +1,13 @@
 class Survey
   include Mongoid::Document
   include Mongoid::Timestamps # adds created_at and updated_at fields
+  include Mongoid::Denormalize
   
   field :title, :type => String
   field :desc, :type => String
   field :active, :type => Boolean, :default => true
-  field :cap, :type => Integer
+  field :max, :type => Integer
+  field :restricted, :type => Boolean, :default => false
   
   validates_presence_of :title
   validates_numericality_of :cap
@@ -15,6 +17,9 @@ class Survey
   accepts_nested_attributes_for :questions, :reject_if => proc {|attr| attr['prompt'].blank? && attr['options'].empty? }
   belongs_to :account
   has_many :requests
+  
+  # Denormalization
+  denormalize :fullname, :from => :account
   
   private
   def has_questions
