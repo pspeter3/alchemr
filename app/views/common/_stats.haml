@@ -1,7 +1,7 @@
 .well
   %h3
     Created by
-    = link_to h!(model.account_fullname), url(:accounts, :show, :id => model.account_id)
+    = link_to h!(model.account_name), url(:accounts, :show, :id => model.account_id)
   .btn-toolbar
     - if model.restricted
       %a.btn.btn-primary{:href => '#'}
