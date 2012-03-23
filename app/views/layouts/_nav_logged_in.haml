@@ -12,7 +12,7 @@
 %ul.nav.pull-right
   %li.dropdown
     %a.dropdown-toggle{:href => '#', 'data-toggle' => 'dropdown'}
-      = h! current_account.fullname
+      = h! current_account.name
       %b.caret
     %ul.dropdown-menu
       %li= link_to 'View Profile', url(:accounts, :show, :id => current_account.id)

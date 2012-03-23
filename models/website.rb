@@ -6,7 +6,6 @@ class Website
   # Fields
   field :name, :type => String
   field :url, :type => String
-  field :desc, :type => String
   field :msg, :type => String
   field :restricted, :type => Boolean, :default => false
   field :key, :type => String
