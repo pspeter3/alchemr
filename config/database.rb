@@ -14,3 +14,5 @@ if Padrino.env == :production
 else
   Mongoid.database = Mongo::Connection.new(host, port).db(database_name)
 end
+
+Mongoid.allow_dynamic_fields = false

@@ -57,4 +57,8 @@ class Alchemr < Padrino::Application
   #     render 'errors/505'
   #   end
   #
+  
+  before do
+    puts self.request.route_obj.named
+  end
 end

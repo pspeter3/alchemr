@@ -3,7 +3,6 @@ class Question
   
   field :prompt, :type => String
   field :img, :type => String
-  field :required, :type => Boolean, :default => true
   field :type, :type => String, :default => 'radio'
   field :options, :type => Array, :default => []
   

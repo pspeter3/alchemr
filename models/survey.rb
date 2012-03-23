@@ -4,7 +4,6 @@ class Survey
   include Mongoid::Denormalize
   
   field :title, :type => String
-  field :desc, :type => String
   field :active, :type => Boolean, :default => true
   field :max, :type => Integer
   field :restricted, :type => Boolean, :default => false
