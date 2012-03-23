@@ -11,6 +11,6 @@
       %p= h! @website.msg
     - if @website.account == current_account
       %h3 API Key
-      %p= h! @website.key
+      %code= h! @website.key
   .span6
     = partial 'common/stats', :locals => {:model => @website}

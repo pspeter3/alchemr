@@ -28,7 +28,7 @@ function addFields(collection, html) {
 function addQuestionOption(link) {
   var parent = $(link).parents('.question');
   var id = $(parent).find(':input').first().attr('name').match(/\d+/)[0];
-  var template = '<div class="input-append">' +
+  var template = '<div class="input-append option-input">' +
         '<input class="span4" name="survey[questions_attributes][$id][options_attributes][$time]" type="text">' +
         '<span class="add-on">' +
           '<a class="close" onclick="$(this).parents(\'.input-append\').remove();">×</a>' +

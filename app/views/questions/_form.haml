@@ -16,7 +16,7 @@
     = f.label :options, :caption => 'Options', :class => 'control-label'
     .controls.options
       - f.fields_for :options do |of|
-        .input-append
+        .input-append.option-input
           = of.text_field '', :class => 'span4', :value => of.object
           .add-on
             %a.close{:onclick => "$(this).parents(\'.input-append\').remove()"} &times;
