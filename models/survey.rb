@@ -20,7 +20,7 @@ class Survey
   has_many :requests
   
   # Denormalization
-  denormalize :fullname, :from => :account
+  denormalize :name, :from => :account
   
   private
   def has_questions

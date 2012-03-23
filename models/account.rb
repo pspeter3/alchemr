@@ -4,12 +4,10 @@ class Account
   include Mongoid::Denormalize
   
   attr_accessor :password, :password_confirmation
-  attr_accessible :name, :surname, :email, :password, :password_confirmation
+  attr_accessible :name, :email, :password, :password_confirmation
 
   # Fields
   field :name,             :type => String
-  field :surname,          :type => String
-  field :fullname,         :type => String
   field :email,            :type => String
   field :crypted_password, :type => String
   field :role,             :type => String, :default => 'account'
@@ -30,11 +28,10 @@ class Account
   has_many :surveys
   
   # Denormalization
-  denormalize :fullname, :to => [:websites, :surveys]
+  denormalize :name, :to => [:websites, :surveys]
   
   # Callbacks
   before_save :encrypt_password, :if => :password_required
-  before_save :generate_fullname
 
   ##
   # This method is for authentication purpose
@@ -62,9 +59,5 @@ class Account
 
     def password_required
       crypted_password.blank? || self.password.present?
-    end
-    
-    def generate_fullname
-      self.fullname = self.name + ' ' + self.surname
     end
 end

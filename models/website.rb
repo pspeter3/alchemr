@@ -21,7 +21,7 @@ class Website
   has_many :requests
   
   # Denormalization
-  denormalize :fullname, :from => :account
+  denormalize :name, :from => :account
   
   # Callbacks
   before_create :generate_key
