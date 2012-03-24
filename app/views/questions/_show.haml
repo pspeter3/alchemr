@@ -2,7 +2,7 @@
   .thumbnail
     = image_tag h!(question.img)
 .control-group
-  = label_tag question.id, :caption => h!(question.prompt), :class => 'control-label alchemr-label'
+  = label_tag question.id, :caption => h!(question.prompt), :class => 'control-label'
   .controls
     - case question.type
       - when 'radio'
@@ -16,4 +16,4 @@
             = check_box_tag question.id, :value => h!(option)
             = option
       - when 'select'
-        = select_tag question.id, :options => question.options, :class => 'span4'
+        = select_tag question.id, :options => question.options, :class => 'input-xlarge'

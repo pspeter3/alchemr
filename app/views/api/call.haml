@@ -1,13 +1,10 @@
-.row
-  .span6
-    .page-header
-      %h1= h! @survey.title
-.row
-  .span6
-    - form_tag url(:api, :respond, :key => @website.key), :class => 'form-horizontal' do
-      - field_set_tag do
-        - @survey.questions.each do |question|
-          = partial 'questions/show', :locals => {:question => question}
-        = partial 'api/info'
-        .form-actions
-          
+.modal-header
+  %h1= h! @survey.title
+.modal-body
+- form_tag url(:api, :respond, :key => @website.key), :class => 'form-horizontal' do
+  - field_set_tag do
+    - @survey.questions.each do |question|
+      = partial 'questions/show', :locals => {:question => question}
+    = partial 'api/info'
+.modal-footer
+  = submit_tag 'Submit', :class => 'btn btn-primary'

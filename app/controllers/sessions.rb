@@ -14,7 +14,7 @@ Alchemr.controllers :sessions do
   post :create, :map => '/login' do
     if account = Account.authenticate(params[:email], params[:password])
       set_current_account(account)
-      flash[:success] = "Welcome #{account.name} #{account.surname}."
+      flash[:success] = "Welcome #{account.name}."
       redirect_url = session[:redirect_url]
       if redirect_url.nil?
         redirect url(:static, :index)

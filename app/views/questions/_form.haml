@@ -3,21 +3,21 @@
   .control-group
     = f.label :prompt, :caption => 'Prompt', :class => 'control-label'
     .controls
-      = f.text_field :prompt, :class => 'span4'
+      = f.text_field :prompt, :class => 'input-xlarge'
   .control-group
     = f.label :img, :caption => 'Image URL', :class => 'control-label'
     .controls
-      = f.text_field :img, :class => 'span4'
+      = f.text_field :img, :class => 'input-xlarge'
   .control-group
     = f.label :type, :caption => 'Question Type', :class => 'control-label'
     .controls
-      = f.select :type, :options => [['Radio Button', 'radio'], ['Select', 'select'], ['Check Box', 'check']], :class => 'span4'
+      = f.select :type, :options => [['Radio Button', 'radio'], ['Select', 'select'], ['Check Box', 'check']], :class => 'input-xlarge'
   .control-group
     = f.label :options, :caption => 'Options', :class => 'control-label'
     .controls.options
       - f.fields_for :options do |of|
-        .input-append.option-input
-          = of.text_field '', :class => 'span4', :value => of.object
+        .input-append
+          = of.text_field '', :class => 'input-xlarge', :value => of.object
           .add-on
             %a.close{:onclick => "$(this).parents(\'.input-append\').remove()"} &times;
   = f.hidden_field :_destroy
