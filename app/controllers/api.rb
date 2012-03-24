@@ -2,9 +2,11 @@ Alchemr.controllers :api do
   layout :api
   
   get :call, :map => '/api/:key' do
-   @website = Website.where(:key => params[:key]).only(:key, :msg).first
-   @survey = Survey.where(:users => {"$ne" => current_user[:id]}, :active => true).only(:title, :questions).first
-   render 'api/call'
+    # Get the website
+    @website = Website.where(:key => params[:key]).only(:key, :msg, :restricted).first
+    # Check if it is restricted
+    @survey = Survey.where(:users => {"$ne" => current_user[:id]}, :active => true).only(:title, :questions).shuffle[0]
+    render 'api/call'
   end
   
   post :respond, :map => '/api/:key', :provides => :json do

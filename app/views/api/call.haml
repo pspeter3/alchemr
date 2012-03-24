@@ -1,5 +1,5 @@
 .modal-header
-  %h1= h! @survey.title
+  %h1= h! @survey.name
 - form_tag url(:api, :respond, :key => @website.key), :class => 'form-horizontal modal-form' do
   - field_set_tag do
     - @survey.questions.each do |question|

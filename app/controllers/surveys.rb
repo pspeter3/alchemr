@@ -27,6 +27,7 @@ Alchemr.controllers :surveys do
 
   get :show, :map => '/surveys/:id' do
     @survey = Survey.find(params[:id])
+    setup_requests @survey
     render 'surveys/show'
   end
 
