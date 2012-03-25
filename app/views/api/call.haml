@@ -1,3 +1,6 @@
+:javascript
+  var socket = new easyXDM.Socket({onMessage: function(message, origin) { return; }});
+  socket.postMessage("#{@message}");
 .modal-header
   %h1= h! @survey.name
 - form_tag url(:api, :respond, :key => @website.key), :class => 'form-horizontal modal-form' do
