@@ -58,7 +58,7 @@ class Alchemr < Padrino::Application
   #   end
   #
   
-  before do
-    puts self.request.route_obj.named
-  end
+  # before do
+  #   puts self.request.route_obj.named
+  # end
 end

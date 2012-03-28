@@ -1,0 +1,5 @@
+= f.hidden_field :website_id, :value => model.id, :class => 'hide'
+.control-group
+  = f.label :survey_id, :caption => 'Survey', :class => 'control-label'
+  .controls
+    = f.select :survey_id, :collection => @models, :fields => [:name, :id], :class => 'input-xlarge'

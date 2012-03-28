@@ -1,22 +1,24 @@
 Alchemr.controllers :requests do
-  # get :index, :map => "/foo/bar" do
-  #   session[:foo] = "bar"
-  #   render 'index'
-  # end
-
-  # get :sample, :map => "/sample/url", :provides => [:any, :js] do
-  #   case content_type
-  #     when :js then ...
-  #     else ...
-  # end
-
-  # get :foo, :with => :id do
-  #   "Maps to url '/foo/#{params[:id]}'"
-  # end
-
-  # get "/example" do
-  #   "Hello world!"
-  # end
-
+  before do
+    require_login
+  end
   
+  get :index do
+    @incoming = Request.where(:to => current_account.id, :status => 'pending')
+    @outgoing = Request.where(:from => current_account.id, :status => 'pending')
+    render 'requests/index'
+  end
+
+  post :create, :map => '/requests', :provides => :js do
+    @request = Request.new(params[:request])
+    @request.from = current_account.id
+    if @request.website.account_id == current_account.id
+      @request.to = @request.survey.account_id
+    else
+      @request.to = @request.website.account_id
+    end
+    @request.save
+
+    '$("#request").modal("hide");'
+  end
 end

@@ -3,7 +3,7 @@ class Request
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  attr_accessible :msg
+  attr_accessible :msg, :survey_id, :website_id
   
   # Fields
   field :msg, :type => String

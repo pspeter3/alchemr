@@ -7,12 +7,9 @@ Alchemr.helpers do
   # 
   def setup_requests(model)
     if model.restricted
-      @request = Request.new
       if model.class == Website
-        @request.website = model
         @models = current_account.surveys(:id, :name)
       else
-        @request.survey = model
         @models = current_account.websites(:id, :name)
       end
     end

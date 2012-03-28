@@ -1,0 +1,17 @@
+= link_to '#request', :class => 'btn btn-primary',  'data-toggle' => 'modal' do
+  %i.icon-ok-circle.icon-white
+  Request
+#request.modal.hide
+  .modal-header
+    = link_to 'x', :class => 'close', 'data-dismiss' => 'modal'
+    %h3 Request #{h! model.name}
+  - form_for Request.new, url(:requests, :create, :format => :js), :class => 'form-horizontal modal-form', :remote => true do |f|
+    .modal-body
+      %fieldset
+        = partial "requests/#{model.class.to_s.downcase}", :locals => {:model => model, :f => f}
+        .control-group
+          = f.label :msg, :caption => 'Message', :class => 'control-label'
+          .controls
+            = f.text_area :msg, :class => 'input-xlarge'
+    .modal-footer
+      = f.submit 'Submit', :class => 'btn btn-primary'

@@ -4,18 +4,8 @@
     = link_to h!(model.account_name), url(:accounts, :show, :id => model.account_id)
   .btn-toolbar
     - if model.restricted
-      = link_to '#request', :class => 'btn btn-primary',  'data-toggle' => 'modal' do
-        %i.icon-ok-circle.icon-white
-        Request
+      = partial 'requests/form', :locals => {:model => model }
     - if model.account == current_account
       = link_to url(model.class.to_s.downcase.pluralize.to_sym, :edit, :id => model.id), :class => 'btn' do
         %i.icon-edit
         Edit #{model.class}
-- if model.restricted
-  #request.modal.hide
-    .modal-header
-      = link_to 'x', '', :class => 'close', 'data-dismiss' => 'modal'
-      %h3 Request "#{h! model.name}"
-    .modal-form
-      = partial 'common/modal_form', :locals => {:model => model, :request => Request.new }
-    
