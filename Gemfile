@@ -7,7 +7,6 @@ source :rubygems
 # Project requirements
 gem 'rake'
 gem 'sinatra-flash', :require => 'sinatra/flash'
-gem 'heroku'
 gem 'unicorn'
 
 # Component requirements
