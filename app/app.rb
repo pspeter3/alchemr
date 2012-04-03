@@ -58,7 +58,10 @@ class Alchemr < Padrino::Application
   #   end
   #
   
-  # before do
-  #   puts self.request.route_obj.named
-  # end
+  # Print out the controller during development
+  configure :development do
+    before do
+      puts self.request.route_obj.named
+    end
+  end
 end
