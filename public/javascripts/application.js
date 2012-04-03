@@ -7,7 +7,7 @@ $(function() {
   // Adds alert support
   $(".alert-message").alert();
   // Add binding for bills
-  setMaxBill();
+  if($(".max input").length > 0) { setMaxBill(); }
   $(".max input").change(function() {
     setMaxBill();
   });
